@@ -1,39 +1,27 @@
-# @geolonia/normalize-japanese-addresses
+# @geolonia/normalize-japanese-addresses-es
 
 ![build](https://github.com/geolonia/normalize-japanese-addresses/workflows/build/badge.svg)
 
 オープンソースの住所正規化ライブラリです。
 
-経産省の [IMI コンポーネントツール](https://info.gbiz.go.jp/tools/imi_tools/)のジオコーディングの仕組みからインスピレーションをうけて開発しました。
+経産省の [IMI コンポーネントツール](https://info.gbiz.go.jp/tools/imi_tools/)のジオコーディングの仕組みからインスピレーションをうけて開発された[@geolonia/normalize-japanese-addresses](https://github.com/geolonia/normalize-japanese-addresses)をESモジュール化したものです。
 
 ## 使い方
 
-ライブラリは npm レジストリで `@geolonia/normalize-japanese-addresses` として配布されています。
-npm コマンドなどを使ってインストールして下さい。
-
-```shell
-$ npm install @geolonia/normalize-japanese-addresses -S
-```
+ブラウザでテストする  
+[https://code4sabae.github.io/normalize-japanese-addresses-es/test.html](https://code4sabae.github.io/normalize-japanese-addresses-es/test.html)  
 
 ### `normalize(address: string)`
 
 住所を正規化します。
 
 ```javascript
-const { normalize } = require('@geolonia/normalize-japanese-addresses')
-normalize('北海道札幌市西区24-2-2-3-3').then(result => {
-  console.log(result); // {"pref": "北海道", "city": "札幌市西区", "town": "二十四軒二条二丁目", "addr": "3-3"}
-})
-```
+<script type="module">
+import { normalize } from "https://code4sabae.github.io/normalize-japanese-addresses-es/normalizeJapaneseAddress.mjs";
 
-## 開発者向け情報
-
-まず、以下のコマンドで環境を用意してください。
-
-```shell
-$ git clone git@github.com:geolonia/normalize-japanese-addresses.git
-$ cd normalize-japanese-addresses
-$ npm install
+const result = await normalize('北海道札幌市西区24-2-2-3-3');
+console.log(result); // {"pref": "北海道", "city": "札幌市西区", "town": "二十四軒二条二丁目", "addr": "3-3"}
+</script>
 ```
 
 ## 注意

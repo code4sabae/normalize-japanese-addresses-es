@@ -1,16 +1,13 @@
-import os from 'os'
-import path from 'path'
 import {
   kanji2number,
   findKanjiNumbers,
-} from '@geolonia/japanese-numeral'
-const tmpdir = path.join(os.tmpdir(), 'normalize-japanese-addresses')
-const fetch = require('node-fetch-cache')(tmpdir)
-import dict from './lib/dict'
+} from './japaneseNumeral.mjs'
+//const tmpdir = path.join(os.tmpdir(), 'normalize-japanese-addresses')
+import dict from './dict.mjs'
 
 const endpoint = 'https://geolonia.github.io/japanese-addresses/api/ja'
 
-const kan2num = (string: string) => {
+const kan2num = (string/*: string*/) => {
   const kanjiNumbers = findKanjiNumbers(string)
   for (let i = 0; i < kanjiNumbers.length; i++) {
     // @ts-ignore
@@ -20,7 +17,7 @@ const kan2num = (string: string) => {
   return string
 }
 
-const zen2han = (str: string) => {
+const zen2han = (str/*: string*/) => {
   return str.replace(/[Ａ-Ｚａ-ｚ０-９ー−]/g, (s) => {
     if ('ー' === s || '−' === s) {
       return '-'
@@ -30,14 +27,14 @@ const zen2han = (str: string) => {
   })
 }
 
-export interface NormalizeResult {
-  pref: string
-  city: string
-  town: string
-  addr: string
+export /*interface*/class NormalizeResult {
+  pref/*: string*/
+  city/*: string*/
+  town/*: string*/
+  addr/*: string*/
 }
 
-export const normalize: (input: string) => Promise<NormalizeResult> = async (address) => {
+export const normalize/*: (input: string) => Promise/*<NormalizeResult>*/ = async (address) => {
   let addr = address
 
   // 都道府県名の正規化
@@ -67,7 +64,7 @@ export const normalize: (input: string) => Promise<NormalizeResult> = async (add
   const cities = prefectures[pref]
 
   // 少ない文字数の地名に対してミスマッチしないように文字の長さ順にソート
-  cities.sort((a: string, b: string) => {
+  cities.sort((a/*: string*/, b/*: string*/) => {
     return b.length - a.length
   })
 
@@ -104,7 +101,7 @@ export const normalize: (input: string) => Promise<NormalizeResult> = async (add
   const towns = await responseTowns.json()
 
   // 少ない文字数の地名に対してミスマッチしないように文字の長さ順にソート
-  towns.sort((a: string, b: string) => {
+  towns.sort((a/*: string*/, b/*: string*/) => {
     return b.length - a.length
   })
 

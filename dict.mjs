@@ -22,9 +22,9 @@ const newKanji = '亜,囲,壱,栄,駅,応,桜,仮,会,懐,覚,楽,陥,歓,気,�
   /,/,
 )
 
-const replace = (str: string) => {
+const replace = (str/*: string*/) => {
   for (const _key in dict) {
-    const key = _key as keyof typeof dict
+    const key = _key/* as keyof typeof dict*/
     const reg1 = new RegExp(key, 'g')
     str = str.replace(reg1, dict[key])
   }
