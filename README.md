@@ -9,7 +9,7 @@
 ## 使い方
 
 ブラウザでテストする  
-[https://code4sabae.github.io/normalize-japanese-addresses-es/test.html](https://code4sabae.github.io/normalize-japanese-addresses-es/test.html)  
+[https://code4sabae.github.io/normalize-japanese-addresses-es/test.html](https://code4sabae.github.io/normalize-japanese-addresses-es/test.html?)  
 
 ### `normalize(address: string)`
 
