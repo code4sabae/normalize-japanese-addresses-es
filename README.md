@@ -8,8 +8,9 @@
 
 ## 使い方
 
-ブラウザでテストする  
+ブラウザで動かす  
 [https://code4sabae.github.io/normalize-japanese-addresses-es/](https://code4sabae.github.io/normalize-japanese-addresses-es/)  
+![screenshot](https://code4sabae.github.io/normalize-japanese-addresses-es/normalizeJapaneseAddress.png)  
 
 ### `normalize(address: string)`
 
